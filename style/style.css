@@ -255,6 +255,8 @@ main input {
   display: flex;
   flex-wrap: wrap;
   max-width: 100%;
+  min-width: 100px;
+  height: 200px;
   margin-top: 15px;
   padding: 16px 12px;
   /* padding: 12px 0px; */
@@ -266,6 +268,7 @@ img {
   max-width: 90%;
   width: 80%;
   height: auto;
+  justify-content: center;
   margin: 3rem 2rem 2rem 2rem;
 }
 .box-card img {
