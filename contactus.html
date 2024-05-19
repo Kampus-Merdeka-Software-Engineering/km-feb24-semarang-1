@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          text-decoration: none;
+          border: 0;
+          list-style: none;
+          appearance: none;
+      }
+
+      body {
+          font-family: "Poppins", sans-serif;
+          background-color: #f1f1f1;
+          width: 100vw;
+          height: 100vh;
+          font-size: 0.88rem;
+          user-select: none;
+          overflow-x: hidden;
+      }
+
+      main {
+          margin-top: 1.4rem;
+          width: auto;
+          display: flex;
+          justify-content: center;
+      }
+
+      .container {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          max-width: 1920px;
+          margin: 0 auto;
+      }
+
+      .form-container,
+      .image-container {
+          width: 50%;
+          padding: 20px;
+      }
+
+      .form-container {
+            
+          display: flex;
+          flex-direction: column;
+          background-color: #ffffff;
+          padding: 20px;
+          border-radius: 15px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .drop-your-question {
+          margin-bottom: 20px;
+          color: #034574;
+          font-size: 2rem;
+          font-weight: 600;
+      }
+
+      .full-name,
+      .email-address,
+      .message {
+          font-size: 1rem;
+          font-weight: 500;
+          color: #114266;
+          margin-bottom: 10px;
+      }
+
+      .input-wrapper {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 20px;
+      }
+
+      .input-group {
+          display: flex;
+          align-items: center;
+          background-color: #f1f1f1;
+          border-radius: 10px;
+          padding: 10px;
+      }
+
+      .indicator {
+          flex: 0 0 auto;
+          width: 10px;
+          height: 10px;
+          background-color: #034574;
+          margin-right: 10px;
+          border-radius: 50%;
+      }
+
+      .input-field,
+      .textarea-field {
+          background-color: #f1f1f1;
+          border: 0;
+          outline: 0;
+          color: #114266;
+          width: 100%;
+          padding: 10px;
+      }
+
+      .textarea-field {
+          border-radius: 10px;
+      }
+
+      .button-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #034574;
+          border-radius: 10px;
+          padding: 10px 20px;
+          cursor: pointer;
+      }
+
+      .send-message {
+          color: #f1f1f1;
+          font-weight: 600;
+      }
+
+      .error-message {
+          font-size: 0.88rem;
+          color: red;
+          display: none;
+      }
+
+      .image-container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .image-container img {
+          width: 100%;
+          max-width: 500px;
+          height: auto;
+          margin-bottom: 20px;
+      }
+    </style>
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="../style/style.css" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+
+    <!-- footer -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <aside>
+        <div class="sidebar poppins-light">
+          <a href="index.html">
+            <span class="material-symbols-outlined">Home</span>
+            <p>Home</p>
+          </a>
+          <a href="quarter.html">
+            <span class="material-symbols-outlined">trending_up</span>
+            <p>Quarter</p>
+          </a>
+          <a href="month.html">
+            <span class="material-symbols-outlined">calendar_today</span>
+            <p>Month</p>
+          </a>
+
+          <a href="category.html">
+            <span class="material-symbols-outlined"> stacks </span>
+            <p>Category</p>
+          </a>
+          <a href="location.html">
+            <span class="material-symbols-outlined">location_on</span>
+            <p>Location</p>
+          </a>
+          <a href="payment.html">
+            <span class="material-symbols-outlined">credit_card</span>
+            <p>Payment</p>
+          </a>
+          <a href="contactus.html">
+            <span class="material-symbols-outlined">person</span>
+            <p>Contact Us</p>
+          </a>
+        </div>
+      </aside>
+      <main>
+        <div class="form-container">
+            <h1 class="drop-your-question">Drop Your Question Here!</h1>
+            <div class="input-wrapper">
+                <div class="full-name">Full Name</div>
+                <div class="input-group">
+                    <div class="indicator"></div>
+                    <input
+                        class="input-field whats-your-full"
+                        placeholder="what’s your full name?"
+                        type="text"
+                    />
+                </div>
+                <div class="error-message name-error">Please enter your full name.</div>
+            </div>
+            <div class="input-wrapper">
+                <div class="email-address">Email Address</div>
+                <div class="input-group">
+                    <div class="indicator"></div>
+                    <input
+                        class="input-field youexamplecom"
+                        placeholder="you@example.com"
+                        type="text"
+                    />
+                </div>
+                <div class="error-message email-error">Please enter a valid email address.</div>
+            </div>
+            <div class="input-wrapper">
+                <div class="message">Message</div>
+                <div class="input-group">
+                    <textarea
+                        class="textarea-field frame-textarea"
+                        placeholder="write your message for the team here"
+                        rows="13"
+                        cols="24"
+                    ></textarea>
+                </div>
+                <div class="error-message message-error">Please enter your message.</div>
+            </div>
+            <div class="button-container" onclick="sendMessage()">
+                <div class="send-message">Send Message</div>
+            </div>
+        </div>
+        <div class="image-container">
+            <img
+                class="frame-child4"
+                loading="lazy"
+                alt=""
+                src="../img/rectangle-44@2x.png"
+            />
+        </div>
+    </main>
+    </div>
+  </body>
+</html>
+<script>
+  function sendMessage() {
+    // Ambil nilai dari input nama, alamat email, dan pesan
+    var fullName = document.querySelector('.whats-your-full').value;
+    var emailAddress = document.querySelector('.youexamplecom').value;
+    var message = document.querySelector('.frame-textarea').value;
+  
+    // Validasi apakah semua kolom telah diisi
+    var nameError = document.querySelector('.name-error');
+    var emailError = document.querySelector('.email-error');
+    var messageError = document.querySelector('.message-error');
+
+    if (!fullName) {
+      nameError.style.display = 'block';
+      return;
+    } else {
+      nameError.style.display = 'none';
+    }
+  
+    if (!emailAddress) {
+      emailError.style.display = 'block';
+      return;
+    } else {
+      emailError.style.display = 'none';
+    }
+  
+    if (!message) {
+      messageError.style.display = 'block';
+      return;
+    } else {
+      messageError.style.display = 'none';
+    }
+  
+    // Validasi apakah alamat email mengandung karakter '@'
+    if (emailAddress.indexOf('@') === -1) {
+      emailError.innerText = 'Please enter a valid email address.';
+      emailError.style.display = 'block';
+      return;
+    }
+  
+    // Format pesan email dengan menggunakan encodeURIComponent
+    var emailSubject = "Message from " + encodeURIComponent(fullName);
+    var emailBody = "Email Address: " + encodeURIComponent(emailAddress) + "%0D%0A" +
+                    "Message: " + encodeURIComponent(message);
+  
+    var mailtoURL = "mailto:team1.tasmgrevou@gmail.com" + "?subject=" + emailSubject + "&body=" + emailBody;
+  
+    // Buka aplikasi email default dengan URL mailto yang telah dibuat
+    window.location.href = mailtoURL;
+  }
+</script>

@@ -204,6 +204,8 @@ main input {
 
 #selectFilter {
   width: 100%;
+  min-width: 120px;
+  height: 40px;
   background-color: #1e7dc0;
   color: #f1f1f1;
   font-size: 12px;
@@ -247,8 +249,11 @@ main input {
   font-size: 26px;
   margin-left: 2rem;
   margin-top: -1, 5rem;
+  
 }
-
+.box-card p{
+  color: #f1f1f1 !important;
+}
 .box-chart {
   width: 100%;
   justify-content: space-between;
@@ -337,4 +342,8 @@ footer .container .contact .info li a {
   display: flex;
   justify-content: center; /* Mengatur konten horizontal di tengah */
   align-items: center; /* Mengatur konten vertikal di tengah */
+}
+
+main p{
+  color: #034574;
 }
