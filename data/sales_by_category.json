@@ -1,0 +1,17 @@
+[{
+  "category": "Food",
+  "total_sales": "9376.75",
+  "item_sales": "5381"
+}, {
+  "category": "Carbonated",
+  "total_sales": "5051.25",
+  "item_sales": "2397"
+}, {
+  "category": "Non Carbonated",
+  "total_sales": "2681.5",
+  "item_sales": "1031"
+}, {
+  "category": "Water",
+  "total_sales": "1221.25",
+  "item_sales": "672"
+}]

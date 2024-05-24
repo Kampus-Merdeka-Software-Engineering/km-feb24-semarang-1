@@ -1,0 +1,61 @@
+[{
+  "bulan": "1",
+  "nama_bulan": "January",
+  "total_sales": "883.5",
+  "items_sales": "491"
+}, {
+  "bulan": "2",
+  "nama_bulan": "February",
+  "total_sales": "908.75",
+  "items_sales": "503"
+}, {
+  "bulan": "3",
+  "nama_bulan": "March",
+  "total_sales": "1117.5",
+  "items_sales": "631"
+}, {
+  "bulan": "4",
+  "nama_bulan": "April",
+  "total_sales": "1619.5",
+  "items_sales": "870"
+}, {
+  "bulan": "5",
+  "nama_bulan": "May",
+  "total_sales": "1589.0",
+  "items_sales": "839"
+}, {
+  "bulan": "6",
+  "nama_bulan": "June",
+  "total_sales": "1814.75",
+  "items_sales": "937"
+}, {
+  "bulan": "7",
+  "nama_bulan": "July",
+  "total_sales": "2126.25",
+  "items_sales": "1081"
+}, {
+  "bulan": "8",
+  "nama_bulan": "August",
+  "total_sales": "2041.25",
+  "items_sales": "1012"
+}, {
+  "bulan": "9",
+  "nama_bulan": "September",
+  "total_sales": "1679.0",
+  "items_sales": "827"
+}, {
+  "bulan": "10",
+  "nama_bulan": "October",
+  "total_sales": "1652.25",
+  "items_sales": "819"
+}, {
+  "bulan": "11",
+  "nama_bulan": "November",
+  "total_sales": "1532.25",
+  "items_sales": "772"
+}, {
+  "bulan": "12",
+  "nama_bulan": "December",
+  "total_sales": "1366.75",
+  "items_sales": "699"
+}]

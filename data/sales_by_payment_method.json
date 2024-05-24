@@ -1,0 +1,9 @@
+[{
+  "type": "Cash",
+  "total_sales": "1137750.0",
+  "percentage_of_total_sales": "62.067836831553535"
+}, {
+  "type": "Credit",
+  "total_sales": "695325.0",
+  "percentage_of_total_sales": "37.932163168446465"
+}]

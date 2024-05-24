@@ -1,0 +1,21 @@
+[{
+  "machine": "GuttenPlans x1367",
+  "total_sales": "6904.25",
+  "items_sales": "3627"
+}, {
+  "machine": "EB Public Library x1380",
+  "total_sales": "6347.75",
+  "items_sales": "3098"
+}, {
+  "machine": "Earle Asphalt x1371",
+  "total_sales": "1808.75",
+  "items_sales": "1030"
+}, {
+  "machine": "BSQ Mall x1364 - Zales",
+  "total_sales": "1731.75",
+  "items_sales": "959"
+}, {
+  "machine": "BSQ Mall x1366 - ATT",
+  "total_sales": "1538.25",
+  "items_sales": "767"
+}]
