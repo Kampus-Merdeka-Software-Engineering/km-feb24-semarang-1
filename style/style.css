@@ -254,21 +254,39 @@ main input {
 .box-card p{
   color: #f1f1f1 !important;
 }
+/* chart */
+.chart{
+  padding: 1rem;
+  width: 100%;
+  min-width: 200px;
+  height: 100%;
+  max-height: 200px;
+}
+
+.main-chart{
+  width: 100%;
+  min-width: 500px;
+  height: 100%;
+  max-height: 250px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  
+}
+
 .box-chart {
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
   display: flex;
   flex-wrap: wrap;
-  max-width: 100%;
-  min-width: 100px;
-  height: 200px;
+  max-width: 600px;
+  height: 100%;
+  max-height: 200px;
   margin-top: 15px;
   padding: 16px 12px;
-  /* padding: 12px 0px; */
-
   background-color: white;
   border-radius: 15px;
 }
+
 img {
   max-width: 90%;
   width: 80%;

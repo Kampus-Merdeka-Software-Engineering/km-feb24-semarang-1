@@ -1,0 +1,17 @@
+[{
+  "quarter": "1",
+  "total_sales": "2909.75",
+  "item_sales": "1625"
+}, {
+  "quarter": "2",
+  "total_sales": "5023.25",
+  "item_sales": "2646"
+}, {
+  "quarter": "3",
+  "total_sales": "5846.5",
+  "item_sales": "2920"
+}, {
+  "quarter": "4",
+  "total_sales": "4551.25",
+  "item_sales": "2290"
+}]

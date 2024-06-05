@@ -1,0 +1,17 @@
+[{
+  "location": "GuttenPlans",
+  "total_sales": "6904.25",
+  "items_sales": "3627"
+}, {
+  "location": "EB Public Library",
+  "total_sales": "6347.75",
+  "items_sales": "3098"
+}, {
+  "location": "Brunswick Sq Mall",
+  "total_sales": "3270.0",
+  "items_sales": "1726"
+}, {
+  "location": "Earle Asphalt",
+  "total_sales": "1808.75",
+  "items_sales": "1030"
+}]

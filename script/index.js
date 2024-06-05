@@ -1,90 +1,241 @@
-const toggleDropdown1 = () => {
-    document.getElementById("myDropdown1").classList.toggle("show");
-  };
-  
-const toggleDropdown2 = () => {
-    document.getElementById("myDropdown2").classList.toggle("show");
-  };
-const toggleDropdown3 = () => {
-    document.getElementById("myDropdown3").classList.toggle("show");
-  };
-  window.onclick = (event) => {
-    if (!event.target.matches(".dropbtn")) {
-      const dropdowns = document.getElementsByClassName("dropdown-content");
-      for (let i = 0; i < dropdowns.length; i++) {
-        const openDropdown = dropdowns[i];
-        if (
-          openDropdown.classList.contains("show") &&
-          event.target.id !== "searchInput1" &&
-          event.target.id !== "searchInput2" &&
-          event.target.id !== "searchInput3"
-        ) {
-          openDropdown.classList.remove("show");
-        }
-      }
+document.addEventListener('DOMContentLoaded', async function () {
+//   const data = await fetch('data.json').then(response => response.json());
+  const fs = require('fs');
+
+// Path ke file data.json
+const filePath = 'data/data.json';
+
+// Membaca file JSON
+fs.readFile(filePath, 'utf8', (err, jsonString) => {
+    if (err) {
+        console.log("Error reading file:", err);
+        return;
     }
-  };
-  
-  document.getElementById("searchInput1").addEventListener("keyup", (event) => {
-    // Pengecualian saat mengetik di input search
-    event.stopPropagation();
-  
-    const input = document.getElementById("searchInput1");
-    const filter = input.value.toUpperCase();
-    const div = document.getElementById("myDropdown1");
-    const a = div.getElementsByTagName("a");
-    for (let i = 0; i < a.length; i++) {
-      const txtValue = a[i].textContent || a[i].innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        a[i].style.display = "";
+    try {
+        const data = JSON.parse(jsonString);
+        // Menampilkan data yang telah dibaca
+        console.log(data);
+    } catch (err) {
+        console.log("Error parsing JSON string:", err);
+    }
+});
+
+
+  const ctxQuarter = document.getElementById('quarterly-sales-chart');
+  const ctxMonth = document.getElementById('monthly-sales-chart');
+  const ctxCategory = document.getElementById('category-sales-chart');
+  const ctxLocation = document.getElementById('location-sales-chart');
+  const ctxPayment = document.getElementById('payment-method-sales-chart');
+
+  let charts = {};
+
+  function updateChart(chart, data) {
+      chart.data = data;
+      chart.update();
+  }
+
+  function filterData(filters) {
+      return data.filter(entry => {
+          const matchesCategory = filters.category === 'all' || entry.category === filters.category;
+          const matchesMachine = filters.machine === 'all' || entry.machine === filters.machine;
+          const matchesMonth = filters.month === 'all' || new Date(entry.trans_date).getMonth() + 1 == filters.month;
+
+          return matchesCategory && matchesMachine && matchesMonth;
+      });
+  }
+
+  function createDataSet(data, key) {
+      const groupedData = data.reduce((acc, curr) => {
+          if (!acc[curr[key]]) {
+              acc[curr[key]] = {
+                  totalSales: 0,
+                  itemSales: 0
+              };
+          }
+          acc[curr[key]].totalSales += parseFloat(curr.transtotal.replace('$', ''));
+          acc[curr[key]].itemSales += curr.rqty;
+          return acc;
+      }, {});
+
+      const labels = Object.keys(groupedData);
+      const totalSales = labels.map(label => groupedData[label].totalSales);
+      const itemSales = labels.map(label => groupedData[label].itemSales);
+
+      return {
+          labels,
+          datasets: [
+              {
+                  label: 'Total Sales',
+                  data: totalSales,
+                  borderColor: 'rgba(75, 192, 192, 1)',
+                  backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                  borderWidth: 1
+              },
+              {
+                  label: 'Item Sales',
+                  data: itemSales,
+                  borderColor: 'rgba(153, 102, 255, 1)',
+                  backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                  borderWidth: 1
+              }
+          ]
+      };
+  }
+
+  function renderCharts(filteredData) {
+      const quarterlyData = createDataSet(filteredData, 'quarter');
+      const monthlyData = createDataSet(filteredData, 'month');
+      const categoryData = createDataSet(filteredData, 'category');
+      const locationData = createDataSet(filteredData, 'location');
+      const paymentData = createDataSet(filteredData, 'type');
+
+      if (charts.quarter) {
+          updateChart(charts.quarter, quarterlyData);
       } else {
-        a[i].style.display = "none";
+          charts.quarter = new Chart(ctxQuarter, {
+              type: 'line',
+              data: quarterlyData,
+              options: {
+                  responsive: true,
+                  scales: {
+                      x: {
+                          type: 'category',
+                          labels: quarterlyData.labels
+                      }
+                  }
+              }
+          });
       }
-    }
-  });
-  
-  document.getElementById("searchInput2").addEventListener("keyup", (event) => {
-    // Pengecualian saat mengetik di input search
-    event.stopPropagation();
-  
-    const input = document.getElementById("searchInput2");
-    const filter = input.value.toUpperCase();
-    const div = document.getElementById("myDropdown2");
-    const a = div.getElementsByTagName("a");
-    for (let i = 0; i < a.length; i++) {
-      const txtValue = a[i].textContent || a[i].innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        a[i].style.display = "";
+
+      if (charts.month) {
+          updateChart(charts.month, monthlyData);
       } else {
-        a[i].style.display = "none";
+          charts.month = new Chart(ctxMonth, {
+              type: 'line',
+              data: monthlyData,
+              options: {
+                  responsive: true,
+                  scales: {
+                      x: {
+                          type: 'category',
+                          labels: monthlyData.labels
+                      }
+                  }
+              }
+          });
       }
-    }
+
+      if (charts.category) {
+          updateChart(charts.category, categoryData);
+      } else {
+          charts.category = new Chart(ctxCategory, {
+              type: 'bar',
+              data: categoryData,
+              options: {
+                  responsive: true,
+                  scales: {
+                      x: {
+                          type: 'category',
+                          labels: categoryData.labels
+                      }
+                  }
+              }
+          });
+      }
+
+      if (charts.location) {
+          updateChart(charts.location, locationData);
+      } else {
+          charts.location = new Chart(ctxLocation, {
+              type: 'bar',
+              data: locationData,
+              options: {
+                  indexAxis: 'y',
+                  responsive: true,
+                  scales: {
+                      x: {
+                          type: 'category',
+                          labels: locationData.labels
+                      }
+                  }
+              }
+          });
+      }
+
+      if (charts.payment) {
+          updateChart(charts.payment, paymentData);
+      } else {
+          charts.payment = new Chart(ctxPayment, {
+              type: 'pie',
+              data: paymentData,
+              options: {
+                  responsive: true
+              }
+          });
+      }
+  }
+
+  function populateFilters() {
+      const categories = Array.from(new Set(data.map(entry => entry.category)));
+      const machines = Array.from(new Set(data.map(entry => entry.machine)));
+      const months = Array.from(new Set(data.map(entry => new Date(entry.trans_date).getMonth() + 1)));
+
+      const categoryFilter = document.getElementById('selectCategory');
+      const machineFilter = document.getElementById('selectMachine');
+      const monthFilter = document.getElementById('selectMonth');
+
+      categories.forEach(category => {
+          const option = document.createElement('option');
+          option.value = category;
+          option.textContent = category;
+          categoryFilter.appendChild(option);
+      });
+
+      machines.forEach(machine => {
+          const option = document.createElement('option');
+          option.value = machine;
+          option.textContent = machine;
+          machineFilter.appendChild(option);
+      });
+
+      months.forEach(month => {
+          const option = document.createElement('option');
+          option.value = month;
+          option.textContent = `Month ${month}`;
+          monthFilter.appendChild(option);
+      });
+  }
+
+  document.getElementById('selectCategory').addEventListener('change', () => {
+      const filters = {
+          category: document.getElementById('selectCategory').value,
+          machine: document.getElementById('selectMachine').value,
+          month: document.getElementById('selectMonth').value
+      };
+      const filteredData = filterData(filters);
+      renderCharts(filteredData);
   });
 
-  document.getElementById("searchInput3").addEventListener("keyup", (event) => {
-    // Pengecualian saat mengetik di input search
-    event.stopPropagation();
-  
-    const input = document.getElementById("searchInput3");
-    const filter = input.value.toUpperCase();
-    const div = document.getElementById("myDropdown3");
-    const a = div.getElementsByTagName("a");
-    for (let i = 0; i < a.length; i++) {
-      const txtValue = a[i].textContent || a[i].innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        a[i].style.display = "";
-      } else {
-        a[i].style.display = "none";
-      }
-    }
+  document.getElementById('selectMachine').addEventListener('change', () => {
+      const filters = {
+          category: document.getElementById('selectCategory').value,
+          machine: document.getElementById('selectMachine').value,
+          month: document.getElementById('selectMonth').value
+      };
+      const filteredData = filterData(filters);
+      renderCharts(filteredData);
   });
-  
-  document
-    .getElementById("dropdownButton1")
-    .addEventListener("click", toggleDropdown1);
-  document
-    .getElementById("dropdownButton2")
-    .addEventListener("click", toggleDropdown2);
-    document
-    .getElementById("dropdownButton3")
-    .addEventListener("click", toggleDropdown3);
+
+  document.getElementById('selectMonth').addEventListener('change', () => {
+      const filters = {
+          category: document.getElementById('selectCategory').value,
+          machine: document.getElementById('selectMachine').value,
+          month: document.getElementById('selectMonth').value
+      };
+      const filteredData = filterData(filters);
+      renderCharts(filteredData);
+  });
+
+  populateFilters();
+  renderCharts(data);
+});

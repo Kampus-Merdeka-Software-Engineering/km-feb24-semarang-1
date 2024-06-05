@@ -67,19 +67,20 @@
           display: flex;
           flex-direction: column;
           justify-content: center;
-          padding: 1.7rem;
-        "
-      >
+          padding: 1.7rem;" >
+
         <p style="font-size: 1.5rem">
           Sales by
           <span
             style="font-size: 2.5rem; display: block; font-weight: 400"
-            class="poppins-medium"
-          >
+            class="poppins-medium">
             Location
           </span>
         </p>
-        <img src="img/chart-location.png" alt="chart location" />
+          <div class="chart">
+            <canvas id="location-sales-chart" width="500" height=" 200"></canvas> 
+          </div>
+
         <p style="font-size: 16px; text-align: justify">
           Lorem ipsum dolor sit amet consectetur. Viverra adipiscing quis arcu
           nibh ornare varius. Sit pharetra pellentesque leo imperdiet viverra
@@ -88,5 +89,8 @@
         </p>
       </main>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../script/chart.js"></script>
   </body>
 </html>
