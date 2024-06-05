@@ -545,7 +545,6 @@ tr:hover {
     top: 10px;
     left: 10px;
     padding: 8px 16px;
-
     border-radius: 8px;
   }
   .toggle-sidebar {
@@ -555,7 +554,7 @@ tr:hover {
     display: none;
     z-index: 100;
   }
-  .active {
+  .toggle-sidebar.active {
     display: block;
   }
   .wrapper {
