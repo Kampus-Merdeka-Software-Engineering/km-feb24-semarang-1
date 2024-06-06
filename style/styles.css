@@ -95,7 +95,7 @@ body {
 }
 
 /* Media query untuk sidebar responsif */
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 768px) {
   .sidebar {
     position: relative;
     width: 100%;
@@ -523,7 +523,7 @@ tr:hover {
 }
 
 /* Responsive design for mobile devices */
-@media (max-width: 360px) {
+@media (max-width: 768px) {
   th,
   td {
     font-size: 12px;
@@ -535,7 +535,7 @@ tr:hover {
 }
 
 /* Media query tambahan untuk tampilan responsif */
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 768px) {
   .sidebar {
     padding: 10px 5px;
   }
@@ -562,6 +562,7 @@ tr:hover {
   }
   .wrapper-sales {
     /* flex-direction: column; */
+    margin-left: 200px;
     gap: 0.2rem;
   }
 
@@ -577,8 +578,8 @@ tr:hover {
   .wrapper-filter {
     /* flex-direction: column; */
 
-    overflow: auto;
-    padding-left: 120px;
+    /* overflow: auto; */
+    /* padding-left: 120px; */
     width: 100%;
     gap: 0.2rem;
   }
